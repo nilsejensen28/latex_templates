@@ -1,0 +1,16 @@
+%This file provides the package "jsonreader" which reads a json file and provides the values as LaTeX commands.
+
+\ProvidesPackage{jsonreader}
+\RequirePackage{luacode}
+\newcommand{\dataPath}{config.json}
+
+% load the data file supposedly containing 'title' and 'numbers'
+\begin{luacode}
+  require("lualibs.lua")
+  local f = io.open('\dataPath', 'r')
+  local s = f:read('*a')
+  f:close()
+  data =  utilities.json.tolua(s)
+\end{luacode}
+
+\newcommand{\getconfigvalue}[1]{\luaexec{tex.sprint(data["#1"])}}
