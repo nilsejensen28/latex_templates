@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-filename=main
+filename=letter_example
 
 pdf:
 	mkdir -p build
