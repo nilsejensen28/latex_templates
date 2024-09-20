@@ -3,7 +3,7 @@
     "last_name": "Mustermann",
     "address_street": "Musterstrasse",
     "address_number": "273",
-    "address_postalcode": "8000",
+    "address_zip": "8000",
     "address_city": "Zürich",
     "address_country": "Schweiz",
     "email": "musterman@gmail.com",
