@@ -1,4 +1,4 @@
-\ProvidesClass{custom_letter}[2019/01/01 Custom Letter Class]
+\ProvidesClass{custom_letter}[2024/09/01 Custom Letter Class]
 
 \LoadClass[11pt,
 	a4paper,

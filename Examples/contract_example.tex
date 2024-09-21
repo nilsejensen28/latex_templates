@@ -1,0 +1,45 @@
+\documentclass[parskip=half]{Classes/custom_contract} 
+
+%Change the language here
+\usepackage[nswissgerman]{babel}
+%usepackage[english]{babel}
+
+%-----------------------------------------------------------------------------------------------------------
+% Setup for the contract
+%-----------------------------------------------------------------------------------------------------------
+
+%Title of the contract
+\title{Contract Agreement} 
+
+% Add contract parties (unlimited number), with the following fields in order:
+% First Name, Last Name, Birthdate, Birthplace, Address Street, Address Number, Address ZIP, Address City, Address Country, Short Name
+\newcontractparty{John,Doe,1990-01-01,New York,Main Street,123,10001,New York,USA, Buyer}
+\newcontractparty{Jane,Smith,1985-05-15,Los Angeles,Second Street,456,90001,Los Angeles,USA, Seller}
+\newcontractparty{Alice,Johnson,1975-12-31,Chicago,Third Street,789,70001,Chicago,USA, Witness}
+
+
+\begin{document}
+
+\maketitle
+\printcontractparties
+
+
+\begin{article}{Allgemeines}
+    Allgemeines.
+\end{article}
+
+\begin{article}{Vertragsgegenstand}
+    Vertragsgegenstand.
+\end{article}
+
+\begin{article}{Vertragsdauer}
+    \begin{paragraphs}
+        \item Der Vertrag beginnt am \ldots
+        \item Der Vertrag endet am \ldots
+    \end{paragraphs}
+\end{article}
+
+% Print signature lines at the end of the document
+\printsignaturelines
+
+\end{document}
