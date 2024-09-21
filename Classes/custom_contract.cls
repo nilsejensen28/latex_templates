@@ -191,4 +191,13 @@
 }
 \makeatother
 
+\newenvironment{preamble}{
+    \vspace{5mm}
+    \textbf{Präambel} \par
+        \itshape % Set text to italics
+        \RaggedRight % Use RaggedRight for justified text
+        \setlength{\leftskip}{0cm} % Set a larger left margin (adjust as needed)
+        \setstretch{1} % Optional: Set line spacing (adjust as needed)
+}{\par\vspace{5mm}}
+
 \endinput
