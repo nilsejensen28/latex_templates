@@ -6,11 +6,11 @@
 
 % load the data file supposedly containing 'title' and 'numbers'
 \begin{luacode}
-  require("lualibs.lua")
-  local f = io.open('\dataPath', 'r')
-  local s = f:read('*a')
-  f:close()
-  data =  utilities.json.tolua(s)
+	require("lualibs.lua")
+	local f = io.open('\dataPath', 'r')
+	local s = f:read('*a')
+	f:close()
+	data =  utilities.json.tolua(s)
 \end{luacode}
 
 \newcommand{\getconfigvalue}[1]{\luaexec{tex.sprint(data["#1"])}}
