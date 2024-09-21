@@ -62,6 +62,20 @@
         table.insert(contract_parties, party)
     end
 
+    function format_date(date_str)
+        local year, month, day = date_str:match("(%d+)-(%d+)-(%d+)")
+        local months = {
+            "Januar", "Februar", "März", "April", "Mai", "Juni",
+            "Juli", "August", "September", "Oktober", "November", "Dezember"
+        }
+        
+        -- Convert month to integer
+        local month_num = tonumber(month)
+        
+        -- Return the formatted date
+        return string.format("%02d. %s %d", tonumber(day), months[month_num], tonumber(year))
+    end
+
     -- Function to format and print contract parties at the beginning of the document
     function format_parties_header()
         if #contract_parties == 0 then
@@ -70,7 +84,7 @@
             tex.print("\\begin{tabular}{p{15cm}p{.5cm}l}")
             tex.print{"Zwischen den Vertragsparteien:\\\\ \\medskip"}
             for i, party in ipairs(contract_parties) do
-                tex.print("\\textbf{" .. party.first_name .. " " .. party.last_name .. "}, geboren in " .. party.birthplace .. " am " .. party.birthdate .. "\\par")
+                tex.print("\\textbf{" .. party.first_name .. " " .. party.last_name .. "}, geboren in " .. party.birthplace .. " am " .. format_date(party.birthdate) .. "\\par")
                 tex.print("Wohnhaft in " .. party.address_street .. " " .. party.address_number .. ", " .. party.address_zip .. " " .. party.address_city .. ", " .. party.address_country .. "\\par")
                 tex.print("\\medskip \\hfill \\textit{- nachfolgend ''" .. party.short_name .. "'' genannt -}\\\\")
                 if i < #contract_parties then
