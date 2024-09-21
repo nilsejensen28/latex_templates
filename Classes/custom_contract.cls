@@ -12,6 +12,9 @@
 \RequirePackage{luacode}
 \RequirePackage{luatexbase}
 
+%Geometry settings
+\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
+
 %Custom paragraph formatting
 \makeatletter
 \renewcommand*{\parformat}{% 
@@ -145,6 +148,7 @@
 %
 \newlist{paragraphs}{enumerate}{1}
 \newlist{letters}{enumerate}{1}
+
 \setlist[paragraphs, 1]{
     label        = {\textsuperscript{\arabic*}},
     ref          = {Abs.\ \arabic*},
@@ -161,5 +165,30 @@
     noitemsep,
     nosep
 }
+
+\setlist[letters, 1]{
+    label        = {\alph*.},
+    ref          = {lit.\ \alph*},
+    labelindent  = 3em, % How much to indent the list.
+    labelwidth   = 2em, % Needs to be a known value to calculate the labelindent for the inserted list.
+    labelsep     = 1em, % Needs to be a known value to calculate the labelindent for the inserted list.
+    itemindent   = 0em, % The labels are never wider than the labelwidth we fixed above, therefore we can fix this.
+    leftmargin   = !,   % Calculate margin to fit the fixed values.
+    align        = left,
+    beginpenalty = 100000,
+    midpenalty   = 1000,
+    noitemsep,
+    nosep
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Custom Setup for title and preamble           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\maketitle}{\textbf{\Huge \@title} \par
+\vspace{5mm}
+\printcontractparties
+}
+\makeatother
 
 \endinput
