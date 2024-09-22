@@ -2,7 +2,7 @@ SHELL=/bin/bash
 
 path=Examples
 
-files = letter_example.tex contract_example.tex
+files = letter_example.tex contract_example.tex labels_example.tex
 
 pdf:
 	mkdir -p build
