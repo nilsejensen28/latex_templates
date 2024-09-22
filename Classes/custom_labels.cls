@@ -40,6 +40,14 @@
         tex.print("\\BottomLabelBorder=" .. bottomlabelborder)
     end
 
+    function parse_custom_label_size(size)
+        local parts = {}
+        for part in string.gmatch(size, "([^,]+)") do
+            table.insert(parts, part:match("^%s*(.-)%s*$"))  -- Trim whitespace
+        end
+        setup_labels_from_dim(parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7], parts[8], parts[9], parts[10], parts[11], parts[12])
+    end
+
     function setup_labels(labeltype)
         if labeltype == "hanging_folder" then
             setup_labels_from_dim(3, 13, "15mm", "15mm", "12mm", "12mm", "0mm", "0mm", "1mm", "1mm", "1mm", "1mm")
@@ -56,6 +64,9 @@
 \end{luacode*}
 
 \newcommand{\setuplabels}[1]{\directlua{setup_labels([[#1]])}}
+
+%Setup custom label size
+\newcommand{\setupcustomlabel}[1]{\directlua{parse_custom_label_size([[#1]])}}
 
 %-----------------------------------------------------------------------------------------------------------
 % Custom label command

@@ -1,13 +1,18 @@
 \documentclass{Classes/custom_labels}
 
 %Unomment this line to show the grid (debugging)
-%\LabelGridtrue
+\LabelGridtrue
 
-%Setup the labels
+%Setup the labels with predefined sizes
 \setuplabels{hanging_folder}
+
+%Setup for custom sizes
+%Number of rows, Number of columns, Left page margin, Right page margin, Top page margin, Bottom page margin, Interlabel column, Interlabel row, Left label border, Right label border, Top label border, Bottom label border
+%\setupcustomlabel{3, 2, 15mm, 15mm, 12mm, 12mm, 0mm, 0mm, 1mm, 1mm, 1mm, 1mm}
 
 \begin{document}
 
+\printlabel{This is a test label}
 \customlabel{1}{Personal}{Random}
 
 \end{document}
